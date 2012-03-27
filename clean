@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -i src/nd2tt
+rm -i src/module/nd2tt.so

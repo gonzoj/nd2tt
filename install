@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "installing nd2tt to $1bin..."
+mkdir -p $1bin
+cp src/nd2tt $1bin/nd2tt
+
+echo "installing nd2tt.so to $1lib..."
+mkdir -p $1lib
+cp src/module/nd2tt.so $1lib/nd2tt.so
+
+echo "creating $HOME/.nd2tt"
+mkdir -p $HOME/.nd2tt
+mkdir -p $HOME/.nd2tt/replays

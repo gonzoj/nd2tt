@@ -1,0 +1,59 @@
+Introduction:
+-------------
+
+nd2tt is a linux tool to record Diablo II gameplay and replay recordings in the 
+game client. It's basically a modified and updated version of Gnarmock's D2TT 
+with support for recording more than one client and replaying multiple 
+recordings simultaneously.
+
+
+Requirements:
+-------------
+
+	- wine
+	- Diablo II
+	- surgeon (or any other injector)
+
+
+Installation:
+-------------
+
+$ ./compile [gcc options]
+
+$ ./install [path]
+
+The compile script will forward its first argument to gcc and compile src/nd2tt 
+and src/module/nd2tt.so. install will copy nd2tt and nd2tt.so to path/bin and 
+path/lib, respectively. $HOME/.nd2tt will be created as well.
+
+NOTE: The path passed to installmust have a trailing '/'.
+To configure the maximum amount of simultaneous connections to nd2tt, set 
+IPC_MAX_CLIENTS in src/ipc/ipc.h accordingly before compiling.
+
+
+Usage:
+------
+
+Inject nd2tt.so into every Diablo II client that you want to be able to record 
+or replay
+
+$ surgeon -i nd2tt.so [pid]
+
+Proceed with starting nd2tt
+
+$ nd2tt
+
+nd2tt will load replay files from $HOME/.nd2tt/replays and eventually show you 
+a prompt. The next section describes available commands.
+
+
+Commands:
+---------
+
+	- quit/q will exit nd2tt
+	- list clients/lc lists connected Diablo II clients
+	- list replays/lr lists loaded replay files
+	- record 'c'/r 'c' enables/disables recording for client 'c'
+	- play 'c' 'r'/p 'c' 'r' play recording 'r' in client 'c'
+
+NOTE: Arguments to record/play are indices of the corresponding listing.

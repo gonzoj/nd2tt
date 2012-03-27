@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "compiling nd2tt..."
+cd src
+./compile $1
+
+echo "compiling nd2tt.so..."
+cd module
+./compile $1
